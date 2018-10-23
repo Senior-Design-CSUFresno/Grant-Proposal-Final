@@ -1,0 +1,316 @@
+%Written by: Aaron Stillmaker
+%September 11, 2018\part{title}
+%ECE 186A - Senior Design\right) 
+%
+%This is a template you can use for your Project Descriptions, though you will need to change a good portion of it for your own needs.
+
+\documentclass[10pt,onecolumn,draftclsnofoot]{IEEEtran} 					%Everything is default, which is journal, 10pt font, and final draft
+\usepackage{dtk-logos}						%This let me do the cool BibTeX logo, you shouldn't need this line. Add additional packages here:
+\usepackage{graphics}
+\usepackage{float}
+\usepackage{caption} 
+\usepackage{natbib}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\captionsetup[table]{skip=10pt}
+\title{\vspace{2in}Smart Eraser}	%the \vspace is moving the title down from the top of the page
+\author{Project Proposal \\ 			%I am jamming all of the stuff I want on the title page into the Author spot, I know, 
+	%this isn't elegant.
+	Course Instructor: Dr. Aaron Stillmaker \\ 				%Note the \\ line returns to make sure to put each one on a new line
+	\vspace{12pt} 								%I put in some space to get the due date listed a little lower
+	\textbf{Date:} Friday, October 19, 2018  \\ 
+	\vspace{2in}								%You may need to mess with this space, this space is above the signature lines.
+	\vspace{6pt}
+\begin{flushleft}
+	\textbf{Project Manager:} Heather Libecki			%Uncomment this section and fill in your team names and your technical advisor's name.
+	\vspace{12pt}
+	\underline{\hspace{3.77in}}\\					%You are welcome to have more than one technical advisor if you wish..
+	\textbf{Team Member:} Chris Quesada
+	\vspace{12pt}
+	\underline{\hspace{4in}}\\
+	\textbf{Team Member:} Juan Colin
+	\vspace{12pt}
+	\underline{\hspace{4.25in}}\\
+	\textbf{Technical Advisor:} Dr. Hovannes Kulhandjian
+	\underline{\hspace{3.05in}} \\
+	\end{flushleft}
+	\vspace{12in}}								%You will need to mess with this space, this space is after the signature lines.  The idea
+%is to make the title page by itself.  I know, this isn't elegant either, but IEEE %formatting doesn't make title pages
+
+\begin{document}
+	\thispagestyle{empty}						%This removes the page number from the title page.
+	
+	\maketitle									%This generates the title from the information given above.
+	
+	
+	\section{Smart Eraser Description}
+	\setlength{\parindent}{5ex}
+	Our project, the Smart Eraser, is an automatic whiteboard eraser. The main deliverable of this project will be an eraser which can move left-to-right on a track, and up-and-down on a linear motion system attached to the track. This eraser will be able to detect where markings are on a whiteboard through the use of a camera and an image-processing program. The camera will send the image of the whiteboard to a microcontroller which will process the image, detect where the markings are, and convert their locations to a coordinate system that the mechanical aspects of the eraser will be able to read. The eraser will then find the quickest route to erase all of the markings before returning to its stand-by position. Finally, the eraser will be able to detect the presence of a person through the use of the camera and motion-detection technology. This will check if there is a person moving in front of the whiteboard, and if there is, the result would be an immediate termination of the process the Smart Eraser was carrying out; this is to ensure the safety of those around the Smart Eraser while it is operating. 
+
+	\begin{figure}[h!]
+	\centering
+	{\includegraphics{"Blank Diagram(1)".png}}
+	\caption{A rough mock-up of the Smart Eraser's design.}
+	\label{fig:look}
+    \end{figure}
+
+    \setlength{\parindent}{5ex}
+    In Figure 1 above, the labeled arrows represent the following listed devices:
+    \begin{enumerate}
+        \item The linear motion system with the attached eraser. This will allow the eraser to move in the y-axis direction.
+        \item The tracking system attached above and below the whiteboard. This will allow the eraser to move in the x-axis direction.
+        \item The text that will be erased. The image of this text will be seen through the camera, and the text's location will be determined through the use of image-processing software within the DE1-SoC microcontroller.
+        \item The DE1-SoC microcontroller, which will contain the image-processing program, the information on how to move the stepper motors, and the motion-detection program.
+        \item The wires connecting the DE1-SoC board to the stepper motors.
+        \item This arrow represents the flow of data from the camera that will be mounted across from the board, to the microcontroller for processing.
+        \item The camera that will be connected to the DE1-SoC board through an Ethernet cable.
+        \item The stepper motors (as well as the PCB that will be made for their H-Bridge connections).
+    \end{enumerate}
+	
+	\section{Impact of the Smart Eraser}
+	\setlength{\parindent}{5ex}
+	The Smart Eraser aims to assist teachers and students who want to focus more on the material being taught and less on the clean up afterward. Have you ever been in a classroom and your teacher fills the whole whiteboard with notes and various examples, only to use precious class time to erase it everytime they need more space to write? With the Smart Eraser, teachers could leave that tedious task to the machines. In between examples, a teacher would be able to clear the board with the press of a button, and then continue teaching without worry.\par
+	\setlength{\parindent}{5ex}
+	Our project would require a railing system to connect to a whiteboard, as well as a place to mount the camera to be used for image processing. With the California State University of Fresno in mind specifically, each classroom already has a projector mounted on the ceiling which points toward the whiteboard at the front of the classroom. The Smart Eraser would utilize this mounted space to place the camera, and wall mounts would be used to put the track system on the board itself. \par
+	\setlength{\parindent}{5ex}
+	At the beginning of this project, research was done to see if there were any similar models or products that already existed which accomplish what the Smart Eraser would do. Various ``automatic whiteboard eraser'' projects were found, but they were focused more on the mechanical movement of the eraser, and less on the brains behind one that could detect where it needs to go in a minimal amount of time. Therefore, the Smart Eraser will be unique in its capabilities to detect not only where it needs to go on the whiteboard, but also how to get those markings erased in the shortest time possible.\\
+	
+	\section{Budget Estimate}
+	\setlength{\parindent}{5ex}
+		\begin{table} [H]
+		\normalsize
+		\centering
+			\begin{tabular}{|l|l|}
+				\hline
+				 \multicolumn{1}{|c|}{\textbf{Component - Production Company}}  & \multicolumn{1}{|c|}{\textbf{Est. Price}} \\
+				\hline
+					DE1-Soc FPGA Development Board - Terasic & \$175 \\
+				\hline
+					CNC stepper motor driver - STEPPERONLINE & \$67.90 (\$33.95) \\
+				\hline
+					Carriage with Stainless Steel Balls; for use with 115RC Linear Tack - Accuride & \$67.16 (\$33.58 x2) \\ 
+				\hline 		
+					115RC 47in Linear Motion Aluminum Track Systems -Accuride & \$62.68 (\$31.34 x2) \\
+				\hline
+					Nema 23 CNC 2.8A Stepper Motor - STEPPERONLINE & \$52.00 (\$26.00) \\
+				\hline
+					1080p POE Camera - sv3c & \$38.99 \\
+				\hline
+					Dry Erase Board (prototype) 36" x 24" - VIZ-PRO & \$31.90 \\
+				\hline
+					Stepper Motor Encasing - D.Y Engineering & \$25.98 (\$12.99 X2) \\
+				\hline
+	\end{tabular} 
+	\end{table}	
+
+	\setlength{\parindent}{5ex}
+\begin{table} [H]	
+\normalsize
+	\centering
+		\begin{tabular}{|l|l|}
+			\hline
+                \multicolumn{1}{|c|}{\textbf{Component - Production Company}}  & \multicolumn{1}{|c|}{\textbf{Est. Price}} \\
+				\hline
+					5 Meter GT2 timing Belt (6mm width) - Mercury & \$17.98 (\$8.99 X2) \\
+				\hline
+					6.35mm GT2 40 Teeth Pulley Flange - uxcell & \$14.38 (\$7.19 X2) \\
+				\hline
+					Nema 23 Stepper Motor Steel Mount Bracket w/ Screws - HobbyUnlimited & \$10.99 \\
+				\hline
+					Dry Erase Whiteboard Block Eraser - Expo & \$8.90 \\
+				\hline
+					PCB for H Bridge (for Stepper Driver) and Stepper Motors, possible LCD screen & \ Unknown \\
+				\hline
+					Various Wires and Connection Cables & \ Unknown \\
+				\hline 
+					\textbf{Total Rough Budget} & \ \textbf{\$573.86} \\
+				\hline 
+		\end{tabular} 
+		\caption{Estimated costs of components for project}
+		\label{table:1}
+	\end{table}	
+	
+	\section{Project Schedule}
+	\setlength{\parindent}{5ex}
+	\begin{table} [H]	
+	    \normalsize
+		\centering
+			\begin{tabular}{|l|l|l|}
+				\hline
+				\multicolumn{1}{|c|}{\textbf{Member Assign.}} & \multicolumn{1}{|c|}{\textbf{Start-End Date}} & \multicolumn{1}{|c|}{\textbf{Description}} \\
+				\hline
+					All & 10/12-10/19/18 & Complete Smart Eraser Project Proposal to be submitted to DPS\\
+					& & Telecom for review. \\
+				\hline
+					All & 10/12-10/19/18 & Finalize the specifics of the budget. \\
+				\hline
+					All & 10/15-10/19/18 & 
+					Create the Project Charter rough draft to be turned in.\\
+				\hline
+					All & 10/16-10/26/18 & Draft a more detailed blueprint of the physical Smart Eraser \\
+					& & deliverable. \\
+				\hline
+					All & 10/16-10/26/18 & 
+					Revise the Project Description; complete for future reference.\\
+				\hline
+					All & 10/16-10/26/18 & 
+					Draft the flowchart to show the logical relationships between all \\
+					& & connected devices within the project.\\
+				\hline
+					All & 10/18-10/19/18 & 
+					Complete bi-monthly update presentation for Senior Design class.\\
+				\hline
+					Juan C. & 10/26-11/10/18 & 
+					Complete a block diagram detailing the specific connections between \\
+					& & the devices within the project.\\
+				\hline
+					Chris Q. & 10/26-11/15/18 & 
+					Research communication and protocols to be used.\\
+				\hline
+					Heather L. & 10/26-11/15/18 & 
+					Research the camera and how it will send data through the ethernet \\
+					& & cord.\\
+				\hline
+					All & 11/1-11/2/18 & 
+					Complete bi-monthly update presentation for Senior Design class.\\
+				\hline
+					Heather L. & 11/1-11/21/18 & 
+					Research the microcontroller to be used  (DE1-SoC).\\
+				\hline
+					Chris Q. & 11/1-11/21/18 & 
+					Research the image processing program and what programming \\
+					& & language to use.\\
+				\hline
+					Juan C. & 11/1-12/1/18 &
+					Research the mechanical system and the power connection it requires. \\
+				\hline
+				
+					All & 11/15-11/16/18 & Complete bi-monthly update presentation for Senior Design class.\\
+				\hline
+					Chris Q. & 11/15-11/25/18 & Test initial information found on image processing program.\\
+				\hline
+		\end{tabular} 
+	\end{table}	
+
+	\setlength{\parindent}{5ex}
+\begin{table} [H]	
+\normalsize
+	\centering
+		\begin{tabular}{|l|l|l|}
+			\hline
+				\multicolumn{1}{|c|}{\textbf{Member Assign.}} & \multicolumn{1}{|c|}{\textbf{Start-End Date}} & \multicolumn{1}{|c|}{\textbf{Description}} \\
+				\hline
+					Heather L. & 11/15-11/25/18 & Test the microcontroller after researching the ports needed for the \\
+					& & project.\\
+				\hline
+					Heather L. & 11/20-12/1/18 & Research the coordinate system; converts pixels to stepper motor \\
+					& & rotations in the mechanical system.\\
+				\hline
+					All & 11/29-11/30/18 & 
+					Complete bi-monthly update presentation for Senior Design class.\\
+				\hline
+					All & 12/1-12/17/18 & 
+					Complete the final draft of the Project Charter.\\
+				\hline
+					All & 12/13-12/14/18 & 
+					Present Project Charter to Senior Design class, professor, and \\
+					& & academic advisor.\\
+				\hline
+		\end{tabular} 
+		\caption{Senior Design Semester 1 - Research Phase.}
+		\label{table:2}
+	\end{table}	
+
+	\setlength{\parindent}{5ex}
+\begin{table} [H]	
+\normalsize
+	\centering
+		\begin{tabular}{|l|l|l|}
+			\hline
+				\multicolumn{1}{|c|}{\textbf{Member Assign.}} & \multicolumn{1}{|c|}{\textbf{Start-End Date}} & \multicolumn{1}{|c|}{\textbf{Description}} \\
+			\hline
+				Chris Q. & 1/1-1/20/19 & Develop the code for the image processing program. \\
+			\hline
+				Juan C. & 1/1-1/15/19 & Configure the power system for the mechanical parts of the Smart \\
+				& & Eraser. \\
+			\hline
+				Juan C. & 1/1-1/15/19 & Build the mechanical system the eraser will be attached to.\\
+			\hline
+				Heather L. & 1/15-2/15/19 & Develop the coordinate system. \\
+			\hline
+				Heather \& Chris & 1/15-1/30/19 & Develop the algorithm to determine the quickest path to erase markings \\
+				& & on the board.\\
+			\hline
+				All & 1/15-1/30/19 & Integrate the microcontroller with the mechanical system.\\
+			\hline
+				All & 1/20-1/30/19 & Test the newly formed microcontroller-mechanical system.\\
+			\hline
+				Heather L. & 2/1-2/10/19 & Connect the camera to the microcontroller ports.\\
+			\hline
+				Chris Q. & 2/1-2/25/19 & Test the image processing program with the camera.\\
+			\hline
+				Chris Q. & 2/25-3/25/19 & Create the motion-detecting program.\\
+			\hline
+				All & 3/26-4/15/19 & Integrate the motion-detecting program with the camera and \\
+				& & microcontroller-mechanical system.\\
+			\hline
+				All & 4/1/-4/20/19 & Test the motion-detecting program.\\
+			\hline
+				All & 4/20-5/13/19 & 
+				Add potential additional features to be decided upon at a later time (if \\
+				& & ahead of schedule).\\
+			\hline
+				All & 4/20-5/13/19 & 
+				Final Project Presentation.\\
+			\hline
+	\end{tabular} 
+		\caption{Senior Design Semester 2 - Implementation Phase.}
+		\label{table:3}
+\end{table}
+	
+	\section{Lab and Other Resources Needed}
+	\setlength{\parindent}{5ex}	
+	Besides the components listed in the budget section of this proposal, the following resources will also be needed to ensure the completion of this project: a DC power source to provide the appropriate voltage to the stepper motors, a power outlet for the DE1-SoC board, various connections and jumper cables between the power system and the Smart Eraser, and a place to store the components we will be using when they are not being utilized to ensure their safety and reliability.
+	\section{Project Team Bios}
+	\setlength{\parindent}{5ex}
+	Heather Libecki will be project manager of the Smart Eraser project. She has experience with programming the specific board (the DE1-SoC) that will be used in this project, as well as connecting physical devices to it and controlling them via the GPIO ports. This project will be dependent on translating data from the camera into information that the microcontroller will be able to process, and her previous experience with the board plus her ability to learn and adapt quickly will help in that implementation. She is adept at solving problems, debugging and error detection, and technical writing, which will be an integral part in the completion of this project. A solid understanding of the microcontroller{\rq}s full capabilities will need to be further ascertained, as well as how the coordinate system will work in conjunction with the stepper motors, which will be connected to the microcontroller.\par
+	\setlength{\parindent}{5ex}	
+	Chris Quesada has experience in working with embedded systems and developing code for different applications. This project will be heavy on the software side, involving either C or assembly language to take in data, analyze it, and then send an output. So, someone versed in both programming and interfacing with microcontrollers will be needed. A good understanding of networking will also be needed, because an ethernet connection will be used as the medium between the camera and the microcontroller. He is developing a solid knowledge based on how to interact with networks which can be applied to configuring an interface to communicate with and read data from the camera, which will be used in the creation of the image processing program, as well as the motion detection program.\par
+	\setlength{\parindent}{5ex}	
+	Juan Colin has experience in working with electrical systems, and physical circuit design. He is proficient in the use of problem solving techniques to create a functioning system with given design specifications. His part of the project will be dependent on learning the physical mechanical aspects of the design, and how the connected parts will be powered. Therefore, he will need to further his understanding of how the parts should be connected in order to ensure the most spatial efficiency, as well as the connection of the power system that will allow all parts of the system to work properly and move the way they need to. 
+	\section{Economic Analysis}
+	\setlength{\parindent}{5ex}
+	SMART Boards can cost thousands of dollars, and the bigger they are the more expensive they get. Even for a small one, which is 77-inches (measured diagonally), the cost can start at \$2200. There were no specific statistics that listed the amount of whiteboards found in classrooms across the United States, but because the SMART Board is a relatively new, expensive technology, it is safe to assume that the percentage of whiteboard usage is substantially higher vs. the percentage of classrooms that have implemented the use of SMART Boards. Although the Smart Eraser is not intended to be a replacement for the SMART Board, it will bring {\lq}smart{\rq} capabilities to all whiteboards that are already in place within the classrooms across the United States, without breaking the bank.\\
+	\section{Commitment Statement}
+	\setlength{\parindent}{5ex}
+	The signatures below, from the students involved in the Smart Eraser project, signify their acceptance of and agreement to the following statements:
+	\begin{itemize}
+	\item To invest adequate time on the project and ensure its timely completion.
+	\item To meet the project{\rq}s deadlines and stick to the schedule outlined in this document.
+	\item To attend future meetings on time and be present throughout their duration.
+	\item To generally be responsive and maintain consistent communication with their technical advisor, as well as the members of the DPS Telecom board and/or the ECE department, who are responsible for awarding this contribution.\\ \end{itemize}
+	\begin{flushleft}
+	Signature: \hrulefill
+	
+	\hspace*{0mm}\phantom{Approved: }Heather Libecki - Project manager\\
+	\vspace{12pt}
+	Signature: \hrulefill
+	
+	\hspace*{0mm}\phantom{Approved: }Chris Quesada - Team member\\
+	\vspace{12pt}
+	Signature: \hrulefill
+	
+	\hspace*{0mm}\phantom{Approved: }Juan Colin - Team member\\
+	
+	\end{flushleft}\par
+	\setlength{\parindent}{5ex}
+	\section{Advisor Recommendation}
+	The signature below signifies my support of this group and their project. I can attest to their commitment to the statements above, and I believe they are capable of completing this project in the way they have described throughout this document. I will be advising them throughout the duration of their project, and I will be sure to provide technical advice and assistance when necessary to aid in the success of their project.\\
+	
+	\begin{flushleft}
+		
+	Signature: \hrulefill
+	
+	\hspace*{0mm}\phantom{Approved: }Hovannes Kulhandjian, Ph.D. - Technical advisor\\\
+
+\end{flushleft}
+\end{document}
